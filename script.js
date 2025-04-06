@@ -1,6 +1,27 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+// const canvas = document.getElementById("gameCanvas");
+// const ctx = canvas.getContext("2d");
+
+// Base game resolution
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 600;
+
+// Resize canvas based on actual display size
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+
+// Call on load and on resize
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// From now on, use canvas.width and canvas.height instead of fixed GAME_WIDTH/GAME_HEIGHT
+
+
 // Paddle
 const paddleHeight = 10,
   paddleWidth = 100;
@@ -29,7 +50,7 @@ for (let c = 0; c < brickColumnCount; c++) {
   }
 }
 
-let score = 0;
+let score = "";
 let lives = 3;
 
 // Controls
@@ -153,5 +174,8 @@ function draw() {
   y += dy;
   requestAnimationFrame(draw);
 }
+
+
+
 
 draw();

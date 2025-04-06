@@ -2,16 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #000;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: #222;
+  overflow: hidden;
 }
+
 canvas {
   background: #000;
   display: block;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  aspect-ratio: 4 / 3; /* Keeps the game canvas in proper proportion */
 }
